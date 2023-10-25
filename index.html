@@ -1,32 +1,31 @@
 <!DOCTYPE html>
-
 <html lang="en">
-    <head>
-        <title>Home | TelescopeWeatherForecast</title>
-        <link rel="icon" href="TelescopeWeatherForecast.ico" type="image/x-icon">
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <header>
-            <!--A series of buttons will be avaliable here for diffrent forecasts-->
-            <a href="index">Home</a>
-            <h1>TelescopeWeatherForcast</h1>
-            <h2>The next best days for telescoping</h2>
-        </header>
-        <main>
+<head>
+    <title>Home | TelescopeWeatherForecast</title>
+    <link rel="icon" href="TelescopeWeatherForecast.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <!-- A series of buttons will be available here for different forecasts -->
+        <a href="index">Home</a>
+        <h1>TelescopeWeatherForecast</h1>
+        <h2>The next best days for telescoping</h2>
+    </header>
+    <main>
         <div class="weather">
             <h2>Current Weather</h2>
             <div class="weather-info">
-                <p><strong>Location:</strong> <span id="locationElement"></span></p>
-                <p><strong>Temperature:</strong> <span id="temperatureElement"></span>&deg;C</p>
-                <p><strong>Condition:</strong> <span id="conditionElement"></span></p>
+                <p><strong>Location:</strong> <span id="location"></span></p>
+                <p><strong>Temperature:</strong> <span id="temperature"></span>&deg;C</p>
+                <p><strong>Condition:</strong> <span id="condition"></span></p>
             </div>
         </div>
     </main>
     <script>
-        const apiKey = 'YOUR_API_KEY';
+        const apiKey = 'T4X7K5unTCkpTAmf4BW2mtXJs3xSOJXo'; // Replace with your actual API key
         const location = 'Dumfries, US'; // E.g., 'New York, US'
-        const apiUrl = 'https://api.tomorrow.io/v4/weather/forecast?location=42.3478,-71.0466&apikey=T4X7K5unTCkpTAmf4BW2mtXJs3xSOJXo';
+        const apiUrl = `https://api.tomorrow.io/v4/weather/forecast?location=${location}&apikey=${apiKey}`;
 
         fetch(apiUrl)
             .then((response) => response.json())
@@ -63,5 +62,5 @@
             }
         }
     </script>
-    </body>
+</body>
 </html>
