@@ -23,42 +23,28 @@
         </div>
     </main>
     <script>
-        const apiKey = 'T4X7K5unTCkpTAmf4BW2mtXJs3xSOJXo'; // Replace with your actual API key
-        const location = 'Dumfries, US'; // E.g., 'New York, US'
-        const apiUrl = `https://api.tomorrow.io/v4/weather/forecast?location=${location}&apikey=${apiKey}`;
+        document.addEventListener("DOMContentLoaded", () => {
+    const apiKey = '3276c5de6f89ff758450855efba6dd94';
+    const weatherUrl = 'https://api.openweathermap.org/data/2.5/weather';
+    const locationInput = document.getElementById('location-input');
+    const getWeatherBtn = document.getElementById('get-weather-btn');
+    const locationElement = document.getElementById('location');
+    const temperatureElement = document.getElementById('temperature');
+    const descriptionElement = document.getElementById('description');
 
-        fetch(apiUrl)
-            .then((response) => response.json())
-            .then((data) => {
-                const locationElement = document.getElementById('location');
-                const temperatureElement = document.getElementById('temperature');
-                const conditionElement = document.getElementById('condition');
-
-                // Access the relevant weather data
-                const currentConditions = data.data.timelines[0].intervals[0].values;
-
-                locationElement.textContent = location;
-                temperatureElement.textContent = currentConditions.temperature_2m + '°C';
-                conditionElement.textContent = getWeatherCondition(currentConditions.weathercode);
+    getWeatherBtn.addEventListener('click', () => {
+        const location = locationInput.value;
+        fetch(`${weatherUrl}?q=${location}&appid=${apiKey}`)
+            .then(response => response.json())
+            .then(data => {
+                locationElement.textContent = data.name;
+                temperatureElement.textContent = data.main.temp;
+                descriptionElement.textContent = data.weather[0].description;
             })
-            .catch((error) => {
-                console.error('Error fetching weather data: ' + error);
-            });
+            .catch(error => console.error(error));
+    });
+});
 
-        function getWeatherCondition(weatherCode) {
-            // Define a function to map Tomorrow.io weather codes to human-readable conditions
-            switch (weatherCode) {
-                case 0:
-                    return 'Clear';
-                case 1:
-                    return 'Partly Cloudy';
-                case 2:
-                    return 'Cloudy';
-                // Add more cases as needed
-                default:
-                    return 'Unknown';
-            }
-        }
     </script>
 </body>
 </html>
