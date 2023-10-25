@@ -1,6 +1,6 @@
 const apiKey = 'YOUR_API_KEY';
-const location = 'Dumfries, VA, US'; // E.g., 'New York, US'
-const apiUrl = `https://api.tomorrow.io/v4/weather/forecast?location={location}&apikey=T4X7K5unTCkpTAmf4BW2mtXJs3xSOJXo`;
+const location = 'Dumfries, US'; // E.g., 'New York, US'
+const apiUrl = 'https://api.tomorrow.io/v4/weather/forecast?location=42.3478,-71.0466&apikey=T4X7K5unTCkpTAmf4BW2mtXJs3xSOJXo';
 
 fetch(apiUrl)
     .then((response) => response.json())
