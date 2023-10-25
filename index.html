@@ -35,13 +35,11 @@
                 const conditionElement = document.getElementById('condition');
 
                 // Access the relevant weather data
-                const timeline = data.data.timelines[0];
-                const temperature = timeline.intervals[0].values.temperature_2m;
-                const weatherCode = timeline.intervals[0].values.weathercode;
+                const currentConditions = data.data.timelines[0].intervals[0].values;
 
                 locationElement.textContent = location;
-                temperatureElement.textContent = temperature + '°C';
-                conditionElement.textContent = getWeatherCondition(weatherCode);
+                temperatureElement.textContent = currentConditions.temperature_2m + '°C';
+                conditionElement.textContent = getWeatherCondition(currentConditions.weathercode);
             })
             .catch((error) => {
                 console.error('Error fetching weather data: ' + error);
