@@ -1,50 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Home | TelescopeWeatherForecast</title>
-    <link rel="icon" href="TelescopeWeatherForecast.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <!-- A series of buttons will be available here for different forecasts -->
-        <a href="index">Home</a>
-        <h1>TelescopeWeatherForecast</h1>
-        <h2>The next best days for telescoping</h2>
-    </header>
-    <main>
-        <div class="weather">
-            <h2>Current Weather</h2>
-            <div class="weather-info">
-                <p><strong>Location:</strong> <span id="location"></span></p>
-                <p><strong>Temperature:</strong> <span id="temperature"></span>&deg;C</p>
-                <p><strong>Condition:</strong> <span id="condition"></span></p>
+    <head>
+        <title>Home | TelescopeWeatherForecast</title>
+        <link rel="icon" href="TelescopeWeatherForecast.ico" type="image/x-icon">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="wrapper">
+        <header><i class='bx bx-left-arrow-alt'></i>Weather App</header>
+        <section class="input-part">
+            <p class="info-txt"></p>
+            <div class="content">
+            <input type="text" spellcheck="false" placeholder="Enter city name" required>
+            <div class="separator"></div>
+            <button>Get Device Location</button>
             </div>
+        </section>
+        <section class="weather-part">
+            <img src="" alt="Weather Icon">
+            <div class="temp">
+            <span class="numb">_</span>
+            <span class="deg">°</span>C
+            </div>
+            <div class="weather">_ _</div>
+            <div class="location">
+            <i class='bx bx-map'></i>
+            <span>_, _</span>
+            </div>
+            <div class="bottom-details">
+            <div class="column feels">
+                <i class='bx bxs-thermometer'></i>
+                <div class="details">
+                <div class="temp">
+                    <span class="numb-2">_</span>
+                    <span class="deg">°</span>C
+                </div>
+                <p>Feels like</p>
+                </div>
+            </div>
+            <div class="column humidity">
+                <i class='bx bxs-droplet-half'></i>
+                <div class="details">
+                <span>_</span>
+                <p>Humidity</p>
+                </div>
+            </div>
+            </div>
+        </section>
         </div>
-    </main>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-    const apiKey = '3276c5de6f89ff758450855efba6dd94';
-    const weatherUrl = 'https://api.openweathermap.org/data/2.5/weather';
-    const locationInput = document.getElementById('location-input');
-    const getWeatherBtn = document.getElementById('get-weather-btn');
-    const locationElement = document.getElementById('location');
-    const temperatureElement = document.getElementById('temperature');
-    const descriptionElement = document.getElementById('description');
-
-    getWeatherBtn.addEventListener('click', () => {
-        const location = locationInput.value;
-        fetch(`${weatherUrl}?q=${location}&appid=${apiKey}`)
-            .then(response => response.json())
-            .then(data => {
-                locationElement.textContent = data.name;
-                temperatureElement.textContent = data.main.temp;
-                descriptionElement.textContent = data.weather[0].description;
-            })
-            .catch(error => console.error(error));
-    });
-});
-
-    </script>
-</body>
+        
+        <script src="script.js"></script>
+    </body>  <body>
+        <div class="wrapper">
+        <header><i class='bx bx-left-arrow-alt'></i>Weather App</header>
+        <section class="input-part">
+            <p class="info-txt"></p>
+            <div class="content">
+            <input type="text" spellcheck="false" placeholder="Enter city name" required>
+            <div class="separator"></div>
+            <button>Get Device Location</button>
+            </div>
+        </section>
+        <section class="weather-part">
+            <img src="" alt="Weather Icon">
+            <div class="temp">
+            <span class="numb">_</span>
+            <span class="deg">°</span>C
+            </div>
+            <div class="weather">_ _</div>
+            <div class="location">
+            <i class='bx bx-map'></i>
+            <span>_, _</span>
+            </div>
+            <div class="bottom-details">
+            <div class="column feels">
+                <i class='bx bxs-thermometer'></i>
+                <div class="details">
+                <div class="temp">
+                    <span class="numb-2">_</span>
+                    <span class="deg">°</span>C
+                </div>
+                <p>Feels like</p>
+                </div>
+            </div>
+            <div class="column humidity">
+                <i class='bx bxs-droplet-half'></i>
+                <div class="details">
+                <span>_</span>
+                <p>Humidity</p>
+                </div>
+            </div>
+            </div>
+        </section>
+        </div>
+        
+        <script src="apicall.js"></script>
+    </body>
 </html>
