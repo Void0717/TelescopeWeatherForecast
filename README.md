@@ -1,1 +1,0 @@
-# TelescopeWeatherForecast is a website that shows the next 5 days that are good for astronomy, and what the weather will be like on those days. It shows things like temperature, humidity, cloud cover, radar, chance of rain, and Wind speeds / gusts
